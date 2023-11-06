@@ -18,6 +18,8 @@ export class AdminComponent {
   constructor(private gameService: GameService, private zone: NgZone) {
     this.gameState.time = this.gameState.standardTime;
     this.gameService.updateGameState(this.gameState);
+    this.audio.src = "assets/whistle.wav";
+    this.audio.load();
   }
 
   setTime(time: number) {
@@ -74,7 +76,7 @@ export class AdminComponent {
   }
 
   changeHalfTime() {
-    console.log("HalfTime", this.gameState.halfTime);
+    this.playAudio();
     this.zone.run(() => {
       if(this.gameState.halfTime && this.teams.length > 0) {
         this.teams.length > this.teamIndex ? this.teamIndex++ : null;
@@ -162,5 +164,10 @@ export class AdminComponent {
       this.gameService.updateGameState(this.gameState);
       this.gameState = {...this.gameState};
     });
+  }
+
+  audio = new Audio();
+  playAudio(){
+    this.audio.play();
   }
 }
