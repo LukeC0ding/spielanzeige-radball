@@ -1,0 +1,19 @@
+app-timer {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'Erbos';
+  src: url('~src/assets/Erbos.ttf') format('truetype');
+  src: url('~src/assets/Erbos.woff') format('woff');
+}
+
+* {
+  font-family: 'Erbos', serif !important;
+  font-size: 5vw;
+  text-align: center;
+  margin-top: 1vw;
+}

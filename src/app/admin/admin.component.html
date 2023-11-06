@@ -1,0 +1,58 @@
+<!-- admin.component.html -->
+<div class="flex3">
+	<div>
+		<button (click)="changeTime(+60)">+</button>
+		<button (click)="changeTime(-60)">-</button>
+	</div>
+	<app-timer [_countdown]="gameState.time" [running]="gameState.running" [(reset)]="reset" (time)="emitTime($event)" (finished)="changeHalfTime()"></app-timer>
+	<div>
+		<button (click)="changeTime(+1)">+</button>
+		<button (click)="changeTime(-1)">-</button>
+	</div>
+</div>
+<div class="flex3">
+	<div>
+		<button (click)="setRunning(true)" *ngIf="!gameState.running">Start</button>
+	</div>
+	<div>
+		<button (click)="setRunning(false)" *ngIf="gameState.running">Pause</button>
+	</div>
+	<div>
+		<button (click)="resetTime()" *ngIf="!gameState.running">Reset</button>
+	</div>
+</div>
+<div style="text-align: center">
+	<p (click)="changeStandardTime()" style="font-size: 1rem">Ausgewählte Zeit: {{formatTime(gameState.standardTime)}}</p>
+</div>
+<div class="flex3">
+	<div>
+		<button (click)="changeGoal('homeGoals', +1)">+</button>
+		<button (click)="changeGoal('homeGoals', -1)">-</button>
+	</div>
+	<app-goals [gameState]="gameState"></app-goals>
+	<div>
+		<button (click)="changeGoal('awayGoals', +1)">+</button>
+		<button (click)="changeGoal('awayGoals', -1)">-</button>
+	</div>
+</div>
+<div *ngIf="teams.length > 1">
+	<button (click)="teams = []">Set new Teams</button>
+	<table>
+		<tr>
+			<td>Heim</td>
+			<td>Gast</td>
+			<td>Tore</td>
+			<td>Actionen</td>
+		</tr>
+		<tr *ngFor="let team of teams; let index = index">
+			<td>{{team[0].teamName}}</td>
+			<td>{{team[1].teamName}}</td>
+			<td>{{team[0].tore}}:{{team[1].tore}}</td>
+			<td><button (click)="setTeam(team); teamIndex = index">Setzen</button></td>
+		</tr>
+	</table>
+</div>
+<div *ngIf="teams.length < 1">
+	<textarea [(ngModel)]="teamsToParse" style="font-size: 1rem; width: 100%; height: 40vh"></textarea><br>
+	<button (click)="onClickParseTeams()">Parse Teams</button>
+</div>

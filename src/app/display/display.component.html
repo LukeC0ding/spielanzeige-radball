@@ -1,0 +1,5 @@
+<div class="fullscreen">
+	<h4>{{gameState.halfTime ? '2. Halbzeit' : '1. Halbzeit'}}</h4>
+	<app-timer [_countdown]="gameState.time"></app-timer>
+	<app-goals [gameState]="gameState"></app-goals>
+</div>

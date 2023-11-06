@@ -1,0 +1,57 @@
+app-timer {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+* {
+  font-size: 5vw;
+  text-align: center;
+  margin-top: 1vw;
+}
+
+app-goals {
+  width: 50%;
+  display: block;
+}
+
+::ng-deep {
+  .flex {
+    display: flex;
+    justify-content: center;
+
+    div {
+      flex: 0;
+      font-size: 15vw !important;
+    }
+  }
+
+  .flex2 {
+    display: flex;
+    justify-content: center;
+
+    div {
+      flex: 0;
+      font-size: 5vw !important;
+    }
+  }
+}
+
+.flex3 {
+    display: flex;
+    justify-content: center;
+
+    div {
+        flex: 0;
+        font-size: 5vw !important;
+    }
+}
+
+table tr td, table tr td button {
+  font-size: 1rem !important;
+}
+
+table {
+  margin: 0 auto;
+}

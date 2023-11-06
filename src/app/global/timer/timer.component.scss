@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Erbos';
+  src: url('~src/assets/Erbos.ttf') format('truetype');
+  src: url('~src/assets/Erbos.woff') format('woff');
+}
+
+::ng-deep .count-down {
+  font-family: 'Erbos', serif !important;
+  font-size: 25vw;
+}
